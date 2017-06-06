@@ -1,0 +1,29 @@
+<header id="id">
+	<a class="home-link" routerLink="/feed">
+		<img class="logo" src="https://i.imgur.com/J303pQ4.png">
+	</a>
+
+	<div class="header-text">
+		<div class="left">
+			<span class="header-nav">
+				<a href="">Profile</a>
+				<span class="divider">|</span>
+
+				<a routerLink="/register">New</a>
+				<span class="divider">|</span>
+
+				<a *ngIf="!authStatus" (click)="login()">Login</a>
+				<a *ngIf="authStatus" (click)="logout()">Logout</a>
+
+				<span class="divider" *ngIf="!authStatus">|</span>
+				<a *ngIf="!authStatus" routerLink="/register">Signup</a>
+			</span>
+		</div>
+
+		<div class="user-info">
+			<p>{{ (user | async)?.displayName }}</p>
+
+			<img *ngIf="authStatus" src="{{ (user | async)?.photoURL }}">
+		</div>
+	</div>
+</header>
