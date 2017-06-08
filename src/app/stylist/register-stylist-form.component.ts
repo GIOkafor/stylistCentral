@@ -21,23 +21,24 @@ export class RegisterStylist {
 	];
 
 	model:any;
+	profilePhoto: any;
 
 
 	constructor(private stylistService: StylistService) {
 	
-	this.model = new Stylist('', [], 0);
+	this.model = new Stylist('', [], '', 0);
 		
 	}
 
 	onSubmit(){ 
 		console.log("Form submitted");
 
-		this.stylistService.newStylist(this.model);
+		this.stylistService.uploadPhoto(this.profilePhoto, this.model);
 		this.submitted = true; 
 	}
 
-	newStylist(){
-		console.log("Creating new stylist");
+	selectFile(event){
+		this.profilePhoto = event.target.files[0];
 	}
 
 	//TODO: Remove when we're done

@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { FeedComponent } from './feed/feed.component';
 import { ListingComponent } from './listing/listing.component';
 import { RegisterStylist } from './stylist/register-stylist-form.component';
+import { StylistPageComponent } from './stylist-page/stylist-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegisterStylist } from './stylist/register-stylist-form.component';
     HeaderComponent,
     FeedComponent,
     ListingComponent,
-    RegisterStylist
+    RegisterStylist,
+    StylistPageComponent
   ],
   imports: [
     BrowserModule,
