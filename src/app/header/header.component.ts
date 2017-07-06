@@ -19,7 +19,11 @@ export class HeaderComponent implements OnInit {
   }
 
   login(){
-  	this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  	console.log("Logging in user");
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
+      var user = res.user;
+      console.log("Sign in successful, user email is :"+user.email);
+    })
   	this.authStatus = true;
   }
 

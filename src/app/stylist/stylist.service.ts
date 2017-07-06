@@ -2,7 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { FirebaseApp } from 'angularfire2';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import  { Stylist } from './stylist';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
 
 @Injectable()
 export class StylistService {
@@ -10,7 +11,7 @@ export class StylistService {
   stylists: FirebaseListObservable<any[]>;
   firebaseStorage: any;
 
-  constructor(public db: AngularFireDatabase, @Inject(FirebaseApp) firebaseApp: firebase.app.App) {
+  constructor(public db: AngularFireDatabase, @Inject(FirebaseApp) firebaseApp: any) {
   	this.stylists = db.list('/stylists');
   	this.firebaseStorage = firebaseApp.storage();
   }
